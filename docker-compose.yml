@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./dump:/dump
+    container_name: postgres
+    environment:
+      POSTGRES_DB: BOOK_MANAGEMENT
+      POSTGRES_USER: books
+      POSTGRES_PASSWORD: books
+    ports:
+      - "5432:5432"
