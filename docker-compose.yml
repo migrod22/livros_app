@@ -13,3 +13,18 @@ services:
       POSTGRES_PASSWORD: books
     ports:
       - "5432:5432"
+
+
+# services:
+#   db:
+#     container_name: revent-db
+#     image: postgres:14.1-alpine
+#     volumes:
+#       - ./data/db:/var/lib/postgresql/data
+#       - ./dump:/dump
+#     environment:
+#       - POSTGRES_DB=revent
+#       - POSTGRES_USER=revent
+#       - POSTGRES_PASSWORD=revent
+#     ports:
+#       - "5432:5432"

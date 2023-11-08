@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 from pathlib import Path
 
@@ -88,16 +92,30 @@ WSGI_APPLICATION = 'livros_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "BOOK_MANAGEMENT",
+#         "USER": "books",
+#         "PASSWORD": "books",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
+
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "BOOK_MANAGEMENT",
-        "USER": "books",
-        "PASSWORD": "books",
+        "NAME": os.environ.get("POSTGRES_DB"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
         "HOST": "localhost",
         "PORT": "5432",
     }
 }
+
 
 
 # Password validation
